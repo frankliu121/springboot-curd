@@ -95,7 +95,7 @@ public class JobEntityController extends BaseController {
      */
     @PostMapping("/updateJob")
     @ApiOperation("更新定时任务")
-    public BaseResult updateJob(@RequestBody @Valid JobEntity job){
+    public BaseResult updateJob(@RequestBody @Validated({ValidType.Update.class}) JobEntity job, BindingResult bindingResult){
         BaseResult result = BaseResult.successResult();
         service.updateTask((job));
         return result;
