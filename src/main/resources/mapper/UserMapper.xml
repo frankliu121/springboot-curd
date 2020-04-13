@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lf.ssm.mapper.test.UserMapper">
+
+
+
+    <resultMap id="BaseResultMap" type="lf.ssm.entity.test.User">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="birthday" property="birthday" jdbcType="DATE" />
+        <result column="src" property="src" jdbcType="VARCHAR" />
+        <result column="ip" property="ip" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+    <update id="update">  <!-- update动态的判断 -->
+        update user
+        <set>
+            <if test="username !=null and username !='' ">
+                username=#{username},
+            </if>
+            <if test="age !=null and age !='' ">
+                age=#{age},
+            </if>
+            <if test="birthday !=null and birthday !='' ">
+                birthday=#{birthday},
+            </if>
+            <if test="src !=null and src !='' ">
+                src=#{src},
+            </if>
+            <if test="ip !=null and ip !='' ">
+                ip=#{ip},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>

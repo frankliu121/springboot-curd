@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script th:fragment="res" th:src="@{/js/jquery-2.0.3.min.js}"></script>  <!--使用@{}获取一定要用th标签获取值,否则获取不到 -->
+    <link  th:fragment="res" rel="stylesheet" type="text/css" th:href="@{/css/test.css}"/>
+</body>
+</html>
