@@ -60,7 +60,7 @@ public class JobEntityController extends BaseController {
     @GetMapping("/list")
     @ApiOperation("查询所有任务")
     public IPage<JobEntity> list( long pageNum, long pageSize){
-        IPage<JobEntity> page = service.selectPage(pageNum, pageSize, new QueryWrapper<JobEntity>().orderByDesc("status"));
+        IPage<JobEntity> page = service.selectPage(pageNum, pageSize, new QueryWrapper<JobEntity>().orderByDesc("status","create_time"));
         //处理corn表达式显示
         if (!CollectionUtils.isEmpty(page.getRecords())){
             page.getRecords().forEach(r->{

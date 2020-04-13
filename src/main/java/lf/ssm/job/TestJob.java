@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * User类定时任务
+ * Test类定时任务
  * @Classname TestJob
  * @Date 2020/4/11 21:34
  * @Created by liufeng

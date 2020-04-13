@@ -23,6 +23,8 @@ import java.util.Map;
  * @Created by liufeng
  */
 @Slf4j
+@PersistJobDataAfterExecution
+@DisallowConcurrentExecution
 public class BaseJob implements Job,Serializable {
 
     /**

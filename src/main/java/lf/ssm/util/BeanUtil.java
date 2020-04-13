@@ -108,7 +108,7 @@ public class BeanUtil {
     public static void main(String[] args) {
         Map<String,Object> map = new HashMap<>();
         map.put("username","liufeng");
-        map.put("age",20);
+        map.put("age",23);
         User user = new User();
         try {
             user = mapToBean(map,user.getClass());

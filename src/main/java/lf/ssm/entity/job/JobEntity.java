@@ -36,8 +36,8 @@ public class JobEntity extends BaseModel {
     private Long id;
 
     @ApiModelProperty(value="job名称",name="name")
-    @NotNull( message = "name不能为空",groups = {ValidType.Add.class})
-    @NotBlank( message = "name不能为空",groups = {ValidType.Add.class})
+    @NotNull( message = "任务名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
+    @NotBlank( message = "任务名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
     private String name;
 
     @ApiModelProperty(value="job分组",name="job_group")
@@ -45,8 +45,8 @@ public class JobEntity extends BaseModel {
 
     @ApiModelProperty(value="执行的表达式",name="cronExpression")
     @TableField("cron_expression")
-    @NotNull( message = "表达式不能为空",groups = {ValidType.Add.class})
-    @NotBlank( message = "表达式不能为空",groups = {ValidType.Add.class})
+    @NotNull( message = "表达式不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
+    @NotBlank( message = "表达式不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
     private String cronExpression;
 
     @ApiModelProperty(value="job的参数",name="parameter")
@@ -56,8 +56,8 @@ public class JobEntity extends BaseModel {
     private String description;
 
     @ApiModelProperty(value="标识job的执行状态 0:已停用 1已启用",name="status")
-    @NotNull( message = "状态不能为空",groups = {ValidType.Add.class})
-    @NotBlank( message = "状态不能为空",groups = {ValidType.Add.class})
+    @NotNull( message = "状态不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
+    @NotBlank( message = "状态不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
     private String status;
 
     @ApiModelProperty(value="触发器名字",name="triggerName")
@@ -69,14 +69,14 @@ public class JobEntity extends BaseModel {
     private String triggerGroup;
 
     @ApiModelProperty(value="执行类名(包名+类名)",name="jobClassName")
-    @NotNull( message = "类名不能为空",groups = {ValidType.Add.class})
-    @NotBlank( message = "类名不能为空",groups = {ValidType.Add.class})
+    @NotNull( message = "类名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
+    @NotBlank( message = "类名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
     @TableField("job_class_name")
     private String jobClassName;
 
     @ApiModelProperty(value="执行的方法名",name="jobClassName")
-    @NotNull( message = "方法名不能为空",groups = {ValidType.Add.class})
-    @NotBlank( message = "方法名不能为空",groups = {ValidType.Add.class})
+    @NotNull( message = "方法名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
+    @NotBlank( message = "方法名不能为空",groups = {ValidType.Add.class,ValidType.Update.class})
     @TableField("method_name")
     private  String methodName;
 
