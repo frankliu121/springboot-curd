@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * @Classname BaseServiceImpl
  * @Date 2020/4/8 9:58
- * @Created by 刘锋
+ * @Created by liufeng
  */
 public abstract class BaseServiceImpl<T extends BaseModel,M extends BaseMapper<T>> extends ServiceImpl<M,T> implements IBaseService<T> {
 

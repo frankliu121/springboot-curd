@@ -14,18 +14,30 @@ import java.util.Date;
 /**
  * @Classname BaseModel
  * @Date 2020/4/8 11:21
- * @Created by 刘锋
+ * @Created by liufeng
  */
 
 @Data
 @ToString
 public class BaseModel implements Serializable {
 
-    @TableField(value = "update_time",fill= FieldFill.INSERT)
+    @TableField(value = "update_time",fill= FieldFill.UPDATE)
     @ApiModelProperty(value="更新时间",name="updateTime")
     private Date updateTime;
 
-    @TableField(value = "create_time",fill=FieldFill.INSERT_UPDATE) //插入或更新是都fill
+    @TableField(value = "modify_name",fill= FieldFill.UPDATE)
+    @ApiModelProperty(value="修改人",name="modifyName")
+    private String modifyName;
+
+    @TableField(value = "create_time",fill=FieldFill.INSERT) //插入或更新是都fill
     @ApiModelProperty(value="创建时间",name="createTime")
     private Date createTime;
+
+    @TableField(value = "create_name",fill=FieldFill.INSERT) //插入或更新是都fill
+    @ApiModelProperty(value="创建人",name="createName")
+    private String createName;
+
+    @TableField(value = "is_delete",fill=FieldFill.INSERT) //插入或更新是都fill
+    @ApiModelProperty(value="是否删除:0否 1是",name="isDelete")
+    private  String isDelete;
 }

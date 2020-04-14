@@ -39,19 +39,6 @@ public class JobEntityController extends BaseController {
     private IJobEntityService service;
 
     /**
-     * 跳转页面
-     * @param page
-     * @return
-     */
-    @GetMapping("/page/{page}")
-    @ApiOperation("跳转页面")
-    public ModelAndView toPage(@PathVariable("page") String page){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("vue/"+page);
-        return modelAndView;
-    }
-
-    /**
      * 查询所有任务
      * @author liufeng
      * @date 2020/4/11 13:24

@@ -25,7 +25,7 @@ public class BasePageController {
     @GetMapping("/{page}")
     public ModelAndView toPage(@PathVariable("page") String page){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(page);
+        modelAndView.setViewName("vue/"+page);
         return modelAndView;
     }
 
@@ -38,7 +38,7 @@ public class BasePageController {
     @GetMapping("/{moduleName}/{page}")
     public ModelAndView toPage(@PathVariable("moduleName") String moduleName,@PathVariable("page") String page){  //根目录跳转页controller
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName(moduleName+"/"+page);
+        modelAndView.setViewName("vue/"+moduleName+"/"+page);
         return modelAndView;
     }
 

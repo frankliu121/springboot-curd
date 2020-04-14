@@ -1,6 +1,7 @@
 package lf.ssm.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import lf.ssm.util.Const;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -17,18 +18,29 @@ public class MetaObjectHandlerConfig extends MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
 
         Object createTime = getFieldValByName("create_time", metaObject);
-        Object updateTime = getFieldValByName("update_time", metaObject);
+        Object isDelete = getFieldValByName("is_delete", metaObject);
+        Object createName = getFieldValByName("create_name", metaObject);
+
+        //mybatis-plus版本2.0.9+
         if (createTime == null)
-            setFieldValByName("createTime",new Date(), metaObject);//mybatis-plus版本2.0.9+
-        if (updateTime == null)
-            setFieldValByName("updateTime",new Date(), metaObject);//mybatis-plus版本2.0.9+
+            setFieldValByName("createTime",new Date(), metaObject);
+        if (isDelete == null ){
+            setFieldValByName("isDelete", Const.DEFAULT_NO_STR, metaObject);
+        }
+        if (createName == null){
+            // todo}
+        }
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        Object updateTime = getFieldValByName("updateTime", metaObject);
+        Object updateTime = getFieldValByName("update_time", metaObject);
+        Object modifyName = getFieldValByName("modify_name", metaObject);
         if (updateTime == null) {
-            setFieldValByName("updateTime", new Date(), metaObject);//mybatis-plus版本2.0.9+
+            setFieldValByName("updateTime", new Date(), metaObject);
+        }
+        if (modifyName == null) {
+            // todo
         }
     }
 }

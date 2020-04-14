@@ -8,7 +8,12 @@ package lf.ssm.util;
  */
 public class Const {
     public static final int DEFAULT_YES= 1;
+
     public static final int DEFAULT_NO= 0;
+
     public static final String DEFAULT_YES_STR= "1";
+
     public static final String DEFAULT_NO_STR= "0";
+
+    public static final String DOT= ".";
 }
