@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost_3306
+ Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 50527
+ Source Server Version : 50725
  Source Host           : localhost:3306
  Source Schema         : test
 
  Target Server Type    : MySQL
- Target Server Version : 50527
+ Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 13/04/2020 20:14:19
+ Date: 15/04/2020 19:36:13
 */
 
 SET NAMES utf8mb4;
@@ -34,17 +34,20 @@ CREATE TABLE `job_entity`  (
   `job_class_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `is_now_run` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
   `method_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `modify_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `create_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `is_delete` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1249636877594644483 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of job_entity
 -- ----------------------------
-INSERT INTO `job_entity` VALUES (1249361298744004610, '测试每隔20秒打印我爱你', 'DEFAULT_GROUP', '0/20 * * * * ?', NULL, '没20秒打印一次我爱你', '0', 'TRIGGER_测试2', 'DEFAULT_GROUP', 'lf.ssm.job.TestJob', '0', NULL, NULL, '2020-04-12 23:38:40', 'printLoveYou');
-INSERT INTO `job_entity` VALUES (1249370197761052674, '测试每隔20s打印你最棒', 'DEFAULT_GROUP', '0/20 * * * * ?', NULL, '每隔20秒打印你最棒', '0', 'TRIGGER_测试实施所', 'DEFAULT_GROUP', 'lf.ssm.job.TestJob', '0', NULL, NULL, '2020-04-13 00:14:01', 'printYouAreBest');
+INSERT INTO `job_entity` VALUES (1249361298744004610, '测试每隔20秒打印我爱你', 'DEFAULT_GROUP', '0/20 * * * * ?', NULL, '没20秒打印一次我爱你', '0', 'TRIGGER_测试2', 'DEFAULT_GROUP', 'lf.ssm.job.TestJob', '0', NULL, NULL, '2020-04-12 23:38:40', 'printLoveYou', NULL, NULL, NULL);
+INSERT INTO `job_entity` VALUES (1249370197761052674, '测试每隔20s打印你最棒', 'DEFAULT_GROUP', '0/20 * * * * ?', NULL, '每隔20秒打印你最棒', '0', 'TRIGGER_测试实施所', 'DEFAULT_GROUP', 'lf.ssm.job.TestJob', '0', NULL, NULL, '2020-04-13 00:14:01', 'printYouAreBest', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for qrtz_blob_triggers
@@ -263,6 +266,125 @@ INSERT INTO `qrtz_triggers` VALUES ('clusteredScheduler', 'TRIGGER_测试每隔2
 INSERT INTO `qrtz_triggers` VALUES ('clusteredScheduler', 'TRIGGER_测试每隔20秒打印我爱你', 'DEFAULT_GROUP', '测试每隔20秒打印我爱你', 'DEFAULT_GROUP', NULL, 1586778260000, -1, 5, 'PAUSED', 'CRON', 1586778253000, 0, NULL, 0, '');
 
 -- ----------------------------
+-- Table structure for sys_generator_record
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_generator_record`;
+CREATE TABLE `sys_generator_record`  (
+  `id` bigint(20) NOT NULL,
+  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'ip',
+  `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '表名',
+  `module_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '小模块名',
+  `package_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '包名',
+  `target_directory` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '输出目录',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `modify_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '修改人',
+  `is_delete` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '是否删除 0否1是',
+  `create_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_generator_record
+-- ----------------------------
+INSERT INTO `sys_generator_record` VALUES (1250056220602052610, NULL, 'sys_generator_record', 'sys', NULL, 'F:/generate/', NULL, '2020-04-14 21:40:03', NULL, '0', NULL);
+INSERT INTO `sys_generator_record` VALUES (1250056800221310977, NULL, 'sys_generator_record', 'sys', NULL, 'F:/generate/', NULL, '2020-04-14 21:42:21', NULL, '0', NULL);
+INSERT INTO `sys_generator_record` VALUES (1250057183341621250, NULL, 'sys_generator_record', 'sys', NULL, 'F:/generate/', NULL, '2020-04-14 21:43:52', NULL, '0', NULL);
+INSERT INTO `sys_generator_record` VALUES (1250057322315689986, NULL, 'sys_generator_record', 'sys', NULL, 'F:/generate/', NULL, '2020-04-14 21:44:25', NULL, '0', NULL);
+INSERT INTO `sys_generator_record` VALUES (1250057750742872066, NULL, 'sys_generator_record', 'sys', NULL, 'F:/generate/', NULL, '2020-04-14 21:46:07', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250059993244282881, '0:0:0:0:0:0:0:1', 'sys_generator_record', NULL, NULL, 'F:/generate/', NULL, '2020-04-14 21:55:02', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250064473134247938, '0:0:0:0:0:0:0:1', 'sys_generator_record', NULL, NULL, 'F:/generate/', NULL, '2020-04-14 22:12:50', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250074436787359745, '0:0:0:0:0:0:0:1', '水电费', '', NULL, 'F:/generate/', NULL, '2020-04-14 22:52:26', NULL, '0', '第三方');
+INSERT INTO `sys_generator_record` VALUES (1250074481188261890, '0:0:0:0:0:0:0:1', '水电费', '', NULL, 'F:/generate/', NULL, '2020-04-14 22:52:36', NULL, '0', '第三方');
+INSERT INTO `sys_generator_record` VALUES (1250074879550672897, '0:0:0:0:0:0:0:1', '  sys_generator_record   ', '  ', NULL, 'F:/generate/', NULL, '2020-04-14 22:54:11', NULL, '0', 'liufnn');
+INSERT INTO `sys_generator_record` VALUES (1250074963587747842, '0:0:0:0:0:0:0:1', 'sys_generator_record   ', '  ', NULL, 'F:/generate/', NULL, '2020-04-14 22:54:31', NULL, '0', 'liufnn');
+INSERT INTO `sys_generator_record` VALUES (1250075048878919681, '0:0:0:0:0:0:0:1', 'sys_generator_record', '    ', NULL, 'F:/generate/', NULL, '2020-04-14 22:54:52', NULL, '0', 'liufnn');
+INSERT INTO `sys_generator_record` VALUES (1250075376017854465, '0:0:0:0:0:0:0:1', 'sys_generator_record', '', NULL, 'F:/generate/', NULL, '2020-04-14 22:56:10', NULL, '0', 'lk');
+INSERT INTO `sys_generator_record` VALUES (1250075434322874370, '0:0:0:0:0:0:0:1', 'sys_generator_record', '', NULL, 'F:/generate/', NULL, '2020-04-14 22:56:23', NULL, '0', 'lk');
+INSERT INTO `sys_generator_record` VALUES (1250250737099747330, '0:0:0:0:0:0:0:1', 'user', 'sys', NULL, 'F:/generate/', NULL, '2020-04-15 10:32:59', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250258930014105602, '0:0:0:0:0:0:0:1', 'user', 'sys', NULL, 'F:/generate/', NULL, '2020-04-15 11:05:32', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250304994540802050, '0:0:0:0:0:0:0:1', 'sys_role', 'sys', NULL, 'F:/generate/', NULL, '2020-04-15 14:08:35', NULL, '0', 'liufeng');
+INSERT INTO `sys_generator_record` VALUES (1250309415991586817, '0:0:0:0:0:0:0:1', 'sys_permission', 'sys', NULL, 'F:/generate/', NULL, '2020-04-15 14:26:09', NULL, '0', 'liufeng');
+
+-- ----------------------------
+-- Table structure for sys_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permission`;
+CREATE TABLE `sys_permission`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限名',
+  `description` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
+  `url` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限地址',
+  `create_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `modify_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `is_delete` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否删除0.否1.是',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' ' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_permission
+-- ----------------------------
+INSERT INTO `sys_permission` VALUES (1, 'userInfo:view', '查询用户', '/userList', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_permission` VALUES (2, 'userInfo:add', '增加用户', '/userAdd', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `sys_permission` VALUES (3, 'userInfo:delete', '删除用户', '/userDelete', NULL, NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `create_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `modify_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `is_delete` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否删除0.否1.是',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色名',
+  `description` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色描述',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' ' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES (NULL, NULL, NULL, NULL, NULL, 1, 'admin', '管理员');
+
+-- ----------------------------
+-- Table structure for sys_role_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role_permission`;
+CREATE TABLE `sys_role_permission`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `permission_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '权限id',
+  `role_id` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色id',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' ' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_role_permission
+-- ----------------------------
+INSERT INTO `sys_role_permission` VALUES (1, '1', '1');
+INSERT INTO `sys_role_permission` VALUES (2, '2', '1');
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `role_id` bigint(20) NULL DEFAULT NULL COMMENT '角色id',
+  `uid` bigint(20) NULL DEFAULT NULL COMMENT 'userid',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = ' ' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
+INSERT INTO `sys_user_role` VALUES (1, 1, 1);
+
+-- ----------------------------
 -- Table structure for tbl_employee
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_employee`;
@@ -288,22 +410,26 @@ INSERT INTO `tbl_employee` VALUES (4, 'White', 'white@atguigu.com', '0', 35);
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `age` int(11) NULL DEFAULT NULL,
-  `birthday` date NULL DEFAULT NULL,
-  `src` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1247809145466380290 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '账号',
+  `nick_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '昵称',
+  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
+  `birthday` datetime(0) NULL DEFAULT NULL COMMENT '生日',
+  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `create_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建人',
+  `modify_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '修改人',
+  `is_delete` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '是否删除0.否1.是',
+  `age` int(11) NULL DEFAULT NULL COMMENT '年龄',
+  `salt` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '盐',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `un_username`(`user_name`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'user 储存用户信息' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1247720130725548034, '十点多', NULL, NULL, '185464', NULL, '2020-04-08 02:57:15', '2020-04-08 02:57:15');
-INSERT INTO `user` VALUES (1247720750257889282, '测试', NULL, NULL, '185464', NULL, '2020-04-08 10:59:43', '2020-04-08 10:59:43');
-INSERT INTO `user` VALUES (1247809145466380289, '刘锋3', 19, NULL, NULL, NULL, '2020-04-08 16:50:58', '2020-04-08 16:50:58');
+INSERT INTO `user` VALUES (1, 'wmyskxz', '管理员', '951cd60dec2104024949d2e0b2af45ae', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'xbNIxrQfn6COSYn1/GdloA==');
+INSERT INTO `user` VALUES (2, 'root', 'root', '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
