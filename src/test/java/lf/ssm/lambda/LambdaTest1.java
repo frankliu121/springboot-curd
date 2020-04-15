@@ -1,6 +1,6 @@
 package lf.ssm.lambda;
 
-import lf.ssm.entity.test.User;
+import lf.ssm.entity.sys.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -66,9 +66,6 @@ public class LambdaTest1 {
 
         //
         List<User> users=new ArrayList<>();
-        users.add(new User("刘锋1", 22));
-        users.add(new User("刘锋2", 22));
-        users.add(new User("刘锋3", 22));
 
         List<User> collect1 = users.stream().map(u -> u.setAge(u.getAge() + 10)).collect(Collectors.toList());
         System.out.println(collect1);
@@ -83,9 +80,9 @@ public class LambdaTest1 {
         System.out.println(Arrays.asList(names));
 
         List<User> users=new ArrayList<>();
-        users.add(new User("張三", 23));
-        users.add(new User("李四", 25));
-        users.add(new User("王五", 18));
+//        users.add(new User("張三", 23));
+//        users.add(new User("李四", 25));
+//        users.add(new User("王五", 18));
 
         List<User> collect = users.stream().sorted((u1, u2) -> u1.getAge() - u2.getAge()).collect(Collectors.toList());
         System.out.println(collect);

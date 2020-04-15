@@ -5,7 +5,7 @@ import lf.ssm.job.TestJob;
 import lf.ssm.util.AgeUtil;
 import lf.ssm.util.JsonUtil;
 import lf.ssm.util.MD5;
-import lf.ssm.entity.test.User;
+import lf.ssm.entity.sys.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.junit.Test;
@@ -47,8 +47,8 @@ public class UtilsTest {
     @Test
     public void testJsonUtil() {
         User user = new User();
-        user.setIp("sdf");
-        user.setUsername("测试");
+//        user.setIp("sdf");
+//        user.setUsername("测试");
 
         String s = JsonUtil.toJson(user);
         User user1 = JsonUtil.toBean(s, User.class);
@@ -198,10 +198,10 @@ public class UtilsTest {
     @Test
     public void testSupplier(){
         User user=new User();
-        user.setUsername("测试Supplier接口 消费型");
-        Supplier<String> supplier=user::getUsername;
-        String s = supplier.get();
-        System.out.println(s);
+//        user.setUsername("测试Supplier接口 消费型");
+//        Supplier<String> supplier=user::getUsername;
+//        String s = supplier.get();
+//        System.out.println(s);
     }
 
 

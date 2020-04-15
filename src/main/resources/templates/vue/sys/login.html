@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>generator</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.5/lib/theme-chalk/index.css">
+    <script src="https://cdn.bootcss.com/vue/2.6.5/vue.common.dev.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.js"></script>
+    <script src="https://unpkg.com/element-ui@2.0.5/lib/index.js"></script>
+    <style>
+        #top {
+            background:#20A0FF;
+            padding:5px;
+            overflow:hidden
+        }
+    </style>
+
+</head>
+<body>
+<div id="generator">
+    <div width="50%">
+        <el-form>
+            <el-form-item label="*用户名" label-width="120px" style="width:50%">
+                <el-input v-model="username" placeholder="请输入用户名"></el-input>
+            </el-form-item>
+            <el-form-item label="面" label-width="120px" style="width:50%">
+                <el-input v-model="password" placeholder="请输入密码"></el-input>
+            </el-form-item>
+            <el-form-item label="" label-width="120px" style="width:50%">
+                <el-button type="primary" @click="login">登录</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</div>
+<script>
+    const baseUrl = "http://localhost:8080/";
+    var vue = new Vue({
+        el:"#generator",
+        data: {
+            loginUrl:'user/login',
+            username:'',
+            password: '',
+        },
+        methods: {
+            //从服务器读取数据
+            loadData: function(){
+
+            },
+            //登录
+            login: function() {
+                var than = this;
+                if (!this.username || !this.username.trim()){
+                    than.$message({message:'用户名不能为空', type: 'warning'});
+                    return
+                }
+                if (!this.password || !this.password.trim()){
+                    than.$message({message:'密码不能为空', type: 'warning'});
+                    return
+                }
+
+                var postDate = {
+                    username: this.username.trim(),
+                    password: this.password.trim(),
+                }
+
+                var than = this;
+                this.$http.post(baseUrl+this.loginUrl,postDate,{emulateJSON:true}).then(function(res){
+                    if (res.data.code == 200){
+                        window.location = "/index"
+                    }else{
+                        than.$message({message: res.data.message, type: 'warning'});
+                    }
+                },function(){
+                    than.$message({message: '请求失败', type: 'error'});
+                });
+            },
+        },
+
+
+
+    });
+</script>
+
+</body>
+</html>

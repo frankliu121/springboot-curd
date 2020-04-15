@@ -1,8 +1,8 @@
 package lf.ssm.job;
 
 import lf.ssm.core.base.BaseJob;
-import lf.ssm.entity.test.User;
-import lf.ssm.service.test.IUserService;
+import lf.ssm.entity.sys.User;
+import lf.ssm.service.sys.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.DisallowConcurrentExecution;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class TestJob extends BaseJob {
     public void printLoveYou(){
         log.info("======================printLoveYou定时任务开始执行===================");
         User user = userService.selectList().get(0);
-        System.out.println("我爱你"+user.getUsername());
+        System.out.println("我爱你"+user.getUserName());
         iLoveYou();
         log.info("======================printLoveYou定时任务执行结束===================");
     }
@@ -42,7 +42,7 @@ public class TestJob extends BaseJob {
         log.info("======================printLoveYou定时任务开始执行===================");
         List<User> users = userService.selectList();
         users.forEach(u->{
-            System.out.println("亲爱的"+u.getUsername()+"你最棒");
+            System.out.println("亲爱的"+u.getUserName()+"你最棒");
         });
         log.info("======================printLoveYou定时任务执行结束===================");
 

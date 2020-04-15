@@ -18,13 +18,24 @@
 </head>
 <body>
 <div id="generator">
+   <div width="50%">
+       <el-form>
+           <el-form-item label="*表名" label-width="120px" style="width:50%">
+               <el-input v-model="tableName" placeholder="请输入表名"></el-input>
+           </el-form-item>
+           <el-form-item label="模块名" label-width="120px" style="width:50%">
+               <el-input v-model="moduleName" placeholder="请输入模块名"></el-input>
+           </el-form-item>
+           <el-form-item label="*创建人" label-width="120px" style="width:50%">
+               <el-input v-model="createName" placeholder="请输入创建人"></el-input>
+           </el-form-item>
 
+           <el-form-item label="" label-width="120px" style="width:50%">
+               <el-button type="primary" @click="save">提交</el-button>
+           </el-form-item>
+       </el-form>
+   </div>
 </div>
-
-<footer align="center">
-    <p>&copy; Quartz 任务管理</p>
-</footer>
-
 <script>
     const baseUrl = "http://localhost:8080/";
     var vue = new Vue({
@@ -44,7 +55,27 @@
             //单行删除
             save: function() {
                 var than = this;
-                this.$http.post(baseUrl+saveUri,{}).then(function(res){
+                if (!this.tableName || !this.tableName.trim()){
+                    than.$message({message:'表名不能为空', type: 'warning'});
+                    return
+                }
+                if (!this.createName || !this.createName.trim()){
+                    than.$message({message:'创建人不能为空', type: 'warning'});
+                    return
+                }
+                if (this.createName){
+                    this.createName = this.createName.trim()
+                }
+
+                var postDate={
+                    moduleName: this.moduleName.trim(),
+                    tableName: this.tableName.trim(),
+                    createName:this.createName.trim(),
+                    targetDirectory:this.targetDirectory.trim()
+                }
+
+                var than = this;
+                this.$http.post(baseUrl+this.saveUri,postDate).then(function(res){
                     if (res.data.code == 200){
                         than.$message({message:'操作成功', type: 'success'});
                     }else{

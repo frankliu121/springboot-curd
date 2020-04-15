@@ -1,20 +1,20 @@
 package lf.ssm.entity.sys;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lf.ssm.core.base.BaseModel;
+import com.baomidou.mybatisplus.annotation.TableField;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 /**
  * <p>
- *  
+ * user 储存用户信息
  * </p>
  *
  * @author liufeng
@@ -23,8 +23,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("sys_role")
-public class SysRole extends BaseModel {
+public class User extends BaseModel {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,21 +34,37 @@ public class SysRole extends BaseModel {
     private Long id;
 
     /**
-     * 角色名
+     * 账号
      */
-    private String name;
+    @TableField("user_name")
+    private String userName;
 
     /**
-     * 角色描述
+     * 昵称
      */
-    private String description;
+    @TableField("nick_name")
+    private String nickName;
 
+    /**
+     * 密码
+     */
+    private String password;
 
-    // 角色 -- 权限关系：多对多
+    /**
+     * 生日
+     */
+    private LocalDateTime birthday;
+
+    /**
+     * 年龄
+     */
+    private int age;
+
+    /**
+     * 盐
+     */
+    private String salt;
+
     @TableField(exist = false)
-    private List<SysPermission> permissions;
-
-    // 用户 -- 角色关系：多对多
-    @TableField(exist = false)
-    private List<User> users;// 一个角色对应多个用户
+    private List<SysRole> roles; // 一个用户具有多个角色
 }

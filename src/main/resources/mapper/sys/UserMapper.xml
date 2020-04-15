@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lf.ssm.mapper.test.UserMapper">
+<mapper namespace="lf.ssm.mapper.sys.UserMapper">
 
 
 
-    <resultMap id="BaseResultMap" type="lf.ssm.entity.test.User">
+    <resultMap id="BaseResultMap" type="lf.ssm.entity.sys.User">
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="age" property="age" jdbcType="INTEGER" />

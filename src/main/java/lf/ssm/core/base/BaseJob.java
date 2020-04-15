@@ -52,7 +52,7 @@ public class BaseJob implements Job,Serializable {
             long start = System.currentTimeMillis();
             ReflectionUtils.invokeMethod(method, bean);
             long end = System.currentTimeMillis();
-            log.info("=======定时任务执行完毕,耗时:"+(end-start)+"毫秒,任务执行时间:"+DateUtil.formatDate(context.getFireTime())+",下次执行时间:"+ DateUtil.formatDate(context.getNextFireTime()) +"=======");
+            log.info("=======定时任务执行完毕,耗时:"+(end-start)+"毫秒,任务执行时间:"+DateUtil.dateToStr(context.getFireTime())+",下次执行时间:"+ DateUtil.dateToStr(context.getNextFireTime()) +"=======");
         }  catch (Exception e) {
             log.error("定时任务执行失败");
             e.printStackTrace();

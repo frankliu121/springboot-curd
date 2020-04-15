@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lf.ssm.entity.job.JobEntity;
 import lf.ssm.mapper.job.JobEntityMapper;
-import lf.ssm.mapper.test.UserMapper;
-import lf.ssm.entity.test.User;
-import lf.ssm.service.impl.test;
+import lf.ssm.mapper.sys.UserMapper;
+import lf.ssm.entity.sys.User;
+import lf.ssm.service.impl.sys.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class mybatisPlusTest {
     private UserMapper userMapper;
 
     @Autowired
-    private test.UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     @Autowired
     private JobEntityMapper jobEntitydao;
@@ -32,9 +32,9 @@ public class mybatisPlusTest {
     @Test
     public void testUpdate(){
         User user = new User();
-        user.setSrc("185464");
+//        user.setSrc("185464");
         user.setId(10L);
-        user.setUsername("测试updateaaa");
+//        user.setUsername("测试updateaaa");
 //        userMapper.update(user);
     }
     @Test
@@ -49,8 +49,8 @@ public class mybatisPlusTest {
     @Test
     public void insert(){
         User user = new User();
-        user.setSrc("185464");
-        user.setUsername("测试insert");
+//        user.setSrc("185464");
+//        user.setUsername("测试insert");
         userMapper.insert(user);
         System.out.println(user);
     }
@@ -59,7 +59,7 @@ public class mybatisPlusTest {
     // 測試plus的insert方法
     public void plusInsert(){
         User user = new User();
-        user.setUsername("测试时间");
+//        user.setUsername("测试时间");
         userMapper.insert(user);
         System.out.println(user.getId());// 插入后自动回填id
     }
@@ -91,8 +91,8 @@ public class mybatisPlusTest {
     public void testBase(){
 //        Class aClass = userService.testClass();
 //        System.out.println(aClass);
-        List<User> all = userService.findAll();
-        System.out.println(all);
+//        List<User> all = userService.findAll();
+//        System.out.println(all);
     }
 
 }

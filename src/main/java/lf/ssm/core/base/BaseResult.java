@@ -88,8 +88,8 @@ public class BaseResult implements Serializable {
      * @return
      */
     public BaseResult error(int code, String msg){
-        this.setCode(ResultEnum.ERR_PARAM.getCode());
-        this.setMessage(ResultEnum.ERR_PARAM.getValue());
+        this.setCode(code);
+        this.setMessage(msg);
         return this;
     }
 

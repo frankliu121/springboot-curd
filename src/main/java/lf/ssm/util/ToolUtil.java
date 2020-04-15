@@ -2,9 +2,11 @@ package lf.ssm.util;
 
 import org.springframework.util.CollectionUtils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -59,6 +61,33 @@ public class ToolUtil {
         return list.toArray(new String[strArr.length]);
     }
 
+    /**
+     * 判断对象是否为空
+     * @param obj
+     * @return
+     */
+    public static boolean isEmpty(Object obj){
+        if (obj == null) return true;
+        else if (obj instanceof CharSequence) return ((CharSequence) obj).length() == 0;
+        else if (obj instanceof Collection) return ((Collection) obj).isEmpty();
+        else if (obj instanceof Map) return ((Map) obj).isEmpty();
+        else if (obj.getClass().isArray()) return Array.getLength(obj) == 0;
+        else return false;
+    }
+
+    /**
+     * 判断对象是否不为空
+     * @param obj
+     * @return
+     */
+    public static boolean isAllNotEmpty(Object... obj){
+        for (Object o : obj){
+            if (isEmpty(o)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         String lineToHump = lineToHump("f_parent_no_leader");

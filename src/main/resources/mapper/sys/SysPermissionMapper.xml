@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lf.ssm.mapper.sys.SysPermissionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="lf.ssm.entity.sys.SysPermission">
+        <id column="id" property="id" />
+    <result column="create_name" property="createName" />
+    <result column="create_time" property="createTime" />
+    <result column="modify_name" property="modifyName" />
+    <result column="update_time" property="updateTime" />
+    <result column="is_delete" property="isDelete" />
+        <result column="name" property="name" />
+        <result column="description" property="description" />
+        <result column="url" property="url" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        create_name,
+        create_time,
+        modify_name,
+        update_time,
+        is_delete,
+        id, name, description, url
+    </sql>
+
+</mapper>

@@ -2,7 +2,7 @@ package lf.ssm.controller.test;
 
 import lf.ssm.core.base.BaseController;
 import lf.ssm.core.base.BaseResult;
-import lf.ssm.entity.test.User;
+import lf.ssm.entity.sys.User;
 import lf.ssm.enums.ResultEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
@@ -29,7 +29,7 @@ public class TestController extends BaseController {
     public BaseResult testVaild(User user){
         log.info("originValid");
         BaseResult baseResult = new BaseResult();
-        if(user.getUsername()==null) {
+        if(user.getUserName()==null) {
             return baseResult.setMessage("username不能为空");
         }
 //        else if (user.getBirthday()==null){
@@ -39,7 +39,7 @@ public class TestController extends BaseController {
         } else {  //成功
             log.info("do something ...");
             List<User> userList=new ArrayList<>();
-            userList.add(new User().setUsername("测试").setAge(18));
+            userList.add(new User().setUserName("测试").setAge(18));
 
             baseResult.setData(user);
              //..... codes

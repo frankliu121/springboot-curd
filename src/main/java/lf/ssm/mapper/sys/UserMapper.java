@@ -1,7 +1,7 @@
-package lf.ssm.mapper.test;
+package lf.ssm.mapper.sys;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import lf.ssm.entity.test.User;
+import lf.ssm.entity.sys.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

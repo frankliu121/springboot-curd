@@ -23,8 +23,8 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("sys_role")
-public class SysRole extends BaseModel {
+@TableName("sys_permission")
+public class SysPermission extends BaseModel {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,21 +35,23 @@ public class SysRole extends BaseModel {
     private Long id;
 
     /**
-     * 角色名
+     * 权限名
      */
     private String name;
 
     /**
-     * 角色描述
+     * 描述
      */
     private String description;
 
+    /**
+     * 权限地址
+     */
+    private String url;
 
-    // 角色 -- 权限关系：多对多
+    /**
+     * 角色
+     */
     @TableField(exist = false)
-    private List<SysPermission> permissions;
-
-    // 用户 -- 角色关系：多对多
-    @TableField(exist = false)
-    private List<User> users;// 一个角色对应多个用户
+    private List<SysRole> roles; // 一个权限可以被多个角色使用
 }

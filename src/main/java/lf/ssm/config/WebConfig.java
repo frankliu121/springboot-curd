@@ -23,7 +23,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addViewControllers( ViewControllerRegistry registry ) {  //配置映射
        // registry.addViewController( "/" ).setViewName( "index" ); //如果使用模板thymeleaf引擎则不要写
 //        registry.addViewController( "/index" ).setViewName( "" );
-//        registry.addViewController( "/login" ).setViewName( "login" );
+        registry.addViewController("/").setViewName("index");     //相当于mvc配置了几个映射
+        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/index.html").setViewName("index");
+        registry.addViewController( "/login" ).setViewName( "vue/sys/login" );
         registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
         super.addViewControllers( registry );
     }

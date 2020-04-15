@@ -21,6 +21,10 @@ import java.util.Date;
 @ToString
 public class BaseModel implements Serializable {
 
+    @TableField(value = "create_time",fill=FieldFill.INSERT) //插入或更新是都fill
+    @ApiModelProperty(value="创建时间",name="createTime")
+    private Date createTime;
+
     @TableField(value = "update_time",fill= FieldFill.UPDATE)
     @ApiModelProperty(value="更新时间",name="updateTime")
     private Date updateTime;
@@ -28,10 +32,6 @@ public class BaseModel implements Serializable {
     @TableField(value = "modify_name",fill= FieldFill.UPDATE)
     @ApiModelProperty(value="修改人",name="modifyName")
     private String modifyName;
-
-    @TableField(value = "create_time",fill=FieldFill.INSERT) //插入或更新是都fill
-    @ApiModelProperty(value="创建时间",name="createTime")
-    private Date createTime;
 
     @TableField(value = "create_name",fill=FieldFill.INSERT) //插入或更新是都fill
     @ApiModelProperty(value="创建人",name="createName")
